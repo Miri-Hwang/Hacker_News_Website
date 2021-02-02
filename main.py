@@ -39,7 +39,7 @@ print("시작")
 # db = popular_or_new(new)
 db = popular_or_new(popular)
 db = popular_or_new(new)
-
+print(db['new'])
 # print(db)
 print("End")
 
@@ -50,8 +50,13 @@ def home():
 
 
 @app.route("/?order_by=popular")
-def popular():
+def popular_page():
     return redirect('/')
+
+
+@app.route("/?order_by=new")
+def new_page():
+    return render_template("index.html", dbs=db['new'], dbs_len=len(db['new']))
 
 
 app.run(host="127.0.0.1")
