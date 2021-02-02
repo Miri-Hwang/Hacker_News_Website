@@ -6,8 +6,15 @@
 </head>
 <h1>SeoDangCat News</h1>
 <p>Order by:
-    <a href="#">Popular</a>|<a href="#">New</a>
+    <a href="/?order_by=popular">Popular</a>|<a href="#">New</a>
 </p>
+<section>
+    {% for db in dbs %}
+    <span>{{db.title}}({{db.url}})</span>
+    <span>{{db.points}} points | By: {{db.author}} | {{db.num_comments}} comments</span>
+    {% endfor %} 
+</section>
+
 <body>
   
 </body>

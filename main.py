@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 base_url = "http://hn.algolia.com/api/v1"
 
@@ -27,24 +27,31 @@ app = Flask("DayNine")
 def popular_or_new(either):
     result = requests.get(either)
     if either == popular:
-        db["popular"] = result.json()
+        db["popular"] = result.json()['hits']
     elif either == new:
-        db["new"] = result.json()
+        db["new"] = result.json()['hits']
     return db
     # print(db['new']['hits'][0]['title'])
 
 
 # print(db)
-# print("시작")
+print("시작")
 # db = popular_or_new(new)
-# db = popular_or_new(popular)
+db = popular_or_new(popular)
+db = popular_or_new(new)
+
 # print(db)
-# print("End")
+print("End")
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", dbs=db['popular'], dbs_len=len(db['popular']))
+
+
+@app.route("/?order_by=popular")
+def popular():
+    return redirect('/')
 
 
 app.run(host="127.0.0.1")
