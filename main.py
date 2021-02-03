@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 
 base_url = "http://hn.algolia.com/api/v1"
 
+
 # This URL gets the newest stories.
 new = f"{base_url}/search_by_date?tags=story"
 
@@ -63,7 +64,11 @@ def detail(id):
     author = db['popular'][index]['author']
     url = db['popular'][index]['url']
     num_comments = db['popular'][index]['num_comments']
-    return render_template("detail.html", title=title, points=points, author=author, url=url, comments=num_comments)
+
+    comment_url = make_detail_url(id)
+    result = requests.get(comment_url)
+    comments = result.json()['children']
+    return render_template("detail.html", title=title, points=points, author=author, url=url, num_comments=num_comments, comments=comments)
 
 
 app.run(host="127.0.0.1")

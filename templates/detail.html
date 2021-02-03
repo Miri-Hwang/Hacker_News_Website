@@ -8,7 +8,20 @@
 <body>
   <h1>{{title}}(<a href="{{url}}">{{url}}</a>)</h1>
   <p>
-    <span>{{points}} | By: {{author}} | {{comments}} comments</span>
+    <span>{{points}} | By: {{author}} | {{num_comments}} comments</span>
+  </p>
+
+  <p>
+    <section>
+      {% for comment in comments %}
+      {% if comment.author != None %}
+        <span>{{comment.author}}</span>
+        <span>{{comment.text|safe}}</span>
+      {% else %}
+      <span>[deleted]</span>
+      {% endif %}
+      {% endfor %}
+  </section>
   </p>
 </body>
 
