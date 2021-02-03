@@ -4,16 +4,26 @@
 <head>
   <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
 </head>
-<h1>SeoDangCat News</h1>
-<p>Order by:
-    <a href="/?order_by={{order[0]}}">Popular</a>|<a href="/?order_by={{order[1]}}">New</a>
-</p>
-<section>
+
+  <p>
+    <h1>SeoDangCat News</h1>
+    <div>
+      Order by:<a href="/?order_by={{order[0]}}">Popular</a>|<a href="/?order_by={{order[1]}}">New</a>
+    </div>
+    </br></br></br></br>
+  </p>
+
     {% for db in dbs %}
-    <span><a href="/{{db.objectID}}">{{db.title}}</a>(<a href = "{{db.url}}">{{db.url}}</a>)</span>
-    <span>{{db.points}} points | By: {{db.author}} | {{db.num_comments}} comments</span>
+    <div>
+      <p>
+        <a href="/{{db.objectID}}" id = >{{db.title}}</a>(<a href = "{{db.url}}">{{db.url}}</a>)
+        </br></br>
+        {{db.points}} points | By: {{db.author}} | {{db.num_comments}} comments
+        </br></br></br></br>
+      </p>
+    </div>
     {% endfor %} 
-</section>
+
 
 <body>
   
