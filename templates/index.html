@@ -14,6 +14,7 @@
   </p>
 
     {% for db in dbs %}
+    {% if db.url != None %}
     <div>
       <p>
         <a href="/{{db.objectID}}" id = >{{db.title}}</a>(<a href = "{{db.url}}">{{db.url}}</a>)
@@ -22,6 +23,7 @@
         </br></br></br></br>
       </p>
     </div>
+    {% endif %}
     {% endfor %} 
 
 
