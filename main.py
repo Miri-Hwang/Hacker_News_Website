@@ -35,8 +35,6 @@ def popular_or_new(either):
     # print(db['new']['hits'][0]['title'])
 
 
-# print(db)
-print("시작")
 # db = popular_or_new(new)
 db = popular_or_new(popular)
 db = popular_or_new(new)
