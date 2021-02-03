@@ -47,23 +47,9 @@ print("End")
 @app.route("/")
 def home():
     word = request.args.get('order_by')
-
+    if word == None:
+        word = 'popular'
     return render_template("index.html", order=['popular', 'new'], dbs=db[word], dbs_len=len(db[word]))
-
-# @app.route("/")
-# def home():
-
-#     return render_template("index.html", dbs=db['popular'], dbs_len=len(db['popular']))
-
-
-# @app.route("/?order_by=popular")
-# def popular_page():
-#     return redirect('/')
-
-
-# @app.route("/?order_by=new")
-# def new_page():
-#     return render_template("index.html", dbs=db['new'], dbs_len=len(db['new']))
 
 
 app.run(host="127.0.0.1")
