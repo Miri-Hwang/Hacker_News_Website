@@ -39,7 +39,7 @@ print("시작")
 # db = popular_or_new(new)
 db = popular_or_new(popular)
 db = popular_or_new(new)
-print(db['new'])
+print(db['popular'][0]['objectID'])
 # print(db)
 print("End")
 
@@ -49,7 +49,21 @@ def home():
     word = request.args.get('order_by')
     if word == None:
         word = 'popular'
+
     return render_template("index.html", order=['popular', 'new'], dbs=db[word], dbs_len=len(db[word]))
+
+
+@app.route("/<id>")
+def detail(id):
+    indexer = dict((p['objectID'], i)
+                   for i, p in enumerate(db['popular']))
+    index = indexer.get(id, -1)
+    title = db['popular'][index]['title']
+    points = db['popular'][index]['points']
+    author = db['popular'][index]['author']
+    url = db['popular'][index]['url']
+    num_comments = db['popular'][index]['num_comments']
+    return render_template("detail.html", title=title, points=points, author=author, url=url, comments=num_comments)
 
 
 app.run(host="127.0.0.1")

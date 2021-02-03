@@ -10,7 +10,7 @@
 </p>
 <section>
     {% for db in dbs %}
-    <span>{{db.title}}(<a href = "{{db.url}}">{{db.url}}</a>)</span>
+    <span><a href="/{{db.objectID}}">{{db.title}}</a>(<a href = "{{db.url}}">{{db.url}}</a>)</span>
     <span>{{db.points}} points | By: {{db.author}} | {{db.num_comments}} comments</span>
     {% endfor %} 
 </section>
