@@ -3,25 +3,31 @@
 
 <head>
   <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+
 </head>
 
 <body>
-  <h1>{{title}}(<a href="{{url}}">{{url}}</a>)</h1>
+
   <p>
-    <span>{{points}} | By: {{author}} | {{num_comments}} comments</span>
+    <h1>{{title}}</h1>
+    </br>
+    <span>{{points}} | By: {{author}} | <a href="{{url}}">{{url}}</a></span>
+    </br></br></br></br>
   </p>
 
   <p>
-    <section>
       {% for comment in comments %}
-      {% if comment.author != None %}
-        <span>{{comment.author}}</span>
-        <span>{{comment.text|safe}}</span>
-      {% else %}
-      <span>[deleted]</span>
-      {% endif %}
+      <div>
+        {% if comment.author != None %}
+          <b>{{comment.author}}:</b>
+          </br>
+          <span>{{comment.text|safe}}</span>
+        {% else %}
+        <span>[deleted]</span>
+        {% endif %}
+        </br></br></br></br>
+     </div>
       {% endfor %}
-  </section>
   </p>
 </body>
 

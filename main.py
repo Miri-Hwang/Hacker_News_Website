@@ -40,9 +40,6 @@ print("시작")
 # db = popular_or_new(new)
 db = popular_or_new(popular)
 db = popular_or_new(new)
-print(db['popular'][0]['objectID'])
-# print(db)
-print("End")
 
 
 @app.route("/")
@@ -63,12 +60,11 @@ def detail(id):
     points = db['popular'][index]['points']
     author = db['popular'][index]['author']
     url = db['popular'][index]['url']
-    num_comments = db['popular'][index]['num_comments']
 
     comment_url = make_detail_url(id)
     result = requests.get(comment_url)
     comments = result.json()['children']
-    return render_template("detail.html", title=title, points=points, author=author, url=url, num_comments=num_comments, comments=comments)
+    return render_template("detail.html", title=title, points=points, author=author, url=url, comments=comments)
 
 
 app.run(host="127.0.0.1")
