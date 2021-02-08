@@ -9,5 +9,4 @@
       
 페이지구성  
 - - -
-<img src="C:\Users\YUJIN\Desktop\news.jpg" width="450px" height="300px"" alt="RubberDuck"></img><br/>
-
+![news](https://user-images.githubusercontent.com/72543560/107164262-ab7c0a80-69f1-11eb-88d9-b7600a897c3d.jpg)
