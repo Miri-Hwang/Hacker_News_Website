@@ -8,7 +8,6 @@
       
       
 페이지구성  
-- - -    
-![Alt text](/path/to/C:\Users\YUJIN\Desktop\news.jpg)
-<img src="/path/to/C:\Users\YUJIN\Desktop\news.jpg" width="450px" height="300px"" alt="RubberDuck"></img><br/>
+- - -
+<img src="C:\Users\YUJIN\Desktop\news.jpg" width="450px" height="300px"" alt="RubberDuck"></img><br/>
 
